@@ -50,3 +50,103 @@ PORTUGUÊS
 - Não deve ser possível cadastrar o e-mail já cadastrado
 - Deve ser possível remover usuário
 - Deve ser possível alterar os dados do usuário
+
+
+----------------------------------
+Como Executar
+----------------------------------
+No terminal execute o comando: `npm install` para instalar as dependências.
+
+Depois execute `npm start` ou `npm run dev` para subir o servidor.
+
+----------------------------------
+Endpoints
+----------------------------------
+### Criação de usuário:
+
+POST /users
+
+Body:
+```json
+{
+  "name": "Tester",
+  "email": "tester@email.com",
+  "password": "1234",
+  "type": "user"
+}
+```
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Lista de usuários:
+
+GET /users
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Usuário logado:
+
+GET /users/me
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Usuário por id:
+
+GET /users/:id
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Atualizar usuário por id:
+
+PATCH /users/:id
+
+Body:
+```json
+{
+  "name": "Tester"
+}
+```
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Remover usuário por id:
+
+DELETE /users/:id
+
+Headers:
+```
+Authorization: Bearer {token}
+```
+
+----------------------------------
+### Login:
+
+POST /auth
+
+Body:
+```json
+{
+  "email": "admin@spsgroup.com.br",
+  "password": "1234"
+}
+```
