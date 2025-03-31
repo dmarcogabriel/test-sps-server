@@ -6,7 +6,7 @@ module.exports = {
   },
 
   findById(userId) {
-    return db.users.find(user => user.id === userId);
+    return db.users.find(user => user.id === Number.parseInt(userId));
   },
 
   findByEmail(email) {
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   deleteById(userId) {
-    db.users = db.users.filter(user => user.id !== userId);
+    db.users = db.users.filter(user => user.id !== Number.parseInt(userId));
   }
 }
