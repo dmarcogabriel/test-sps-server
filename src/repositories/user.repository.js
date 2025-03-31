@@ -15,6 +15,13 @@ module.exports = {
 
   create(user) {
     const lastUser = db.users[db.users.length - 1];
+
+    const isExistingUser = this.findByEmail(user.email);
+
+    if (isExistingUser) {
+      throw new Error("Usuário já cadastrado.", { cause: "DUPLICATION" });
+    }
+
     db.users.push({ id: lastUser.id + 1, ...user });
   },
 

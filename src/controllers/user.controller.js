@@ -9,7 +9,7 @@ const routes = Router();
 routes.post("/", authenticate, ({ body }, res) => {
   try {
     const validated = createUserValidator.parse(body);
-    userRepository(validated);
+    userRepository.create(validated);
   
     res.status(200).json({ message: "Usuário criado com sucesso." });
   } catch (e) {
@@ -20,7 +20,9 @@ routes.post("/", authenticate, ({ body }, res) => {
       return;
     }
 
-    res.status(500).json({ message: "Erro ao criar usuário, tente novamente mais tarde." });
+    const errorMessage = e.cause === "DUPLICATION" ? e.message : "Erro ao criar usuário, tente novamente mais tarde."
+
+    res.status(500).json({ message: errorMessage });
   }
 });
 
