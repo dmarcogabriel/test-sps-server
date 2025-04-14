@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./build",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "src",
+    "vitest.config.cjs",
+    "src/main.ts",
+    "gulpfile.js"
+, "srcOLD/routes.ts"  ]
+}
